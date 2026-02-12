@@ -1,16 +1,17 @@
 #!/usr/bin/env bash
 
+set -e
+
 echo "🔧 Initialisiere virtuelle Umgebung..."
 
-# venv nur anlegen, wenn sie noch nicht existiert
 if [ ! -d "first.venv" ]; then
     python -m venv first.venv
 fi
 
-# venv aktivieren
 source first.venv/bin/activate
 
 echo "📦 Installiere Abhängigkeiten..."
+python -m pip install --upgrade pip
 pip install -r requirements.txt
 
 echo "🚀 Starte Flask Dashboard..."
